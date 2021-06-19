@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import data from "../../data.json";
 import useAuth from "../../hooks/useAuth";
+import count from "../../services/count";
+import itemsType from "../../services/itemType";
 import FilterByColor from "../FilterByColor";
 import FilterByShape from "../FilterByShape";
 import Shape from "../Shape";
@@ -78,26 +80,9 @@ export default function Main() {
       <FilterByShape shapes={shapes} setShapes={setShapes} />
       <p className={[styles.subheading, styles.capitalize].join(" ")}>
         {itemsType(selectedColors, selectedShapes)} item
-        {finalList.length > 2 && "s"}. ({finalList.length})
+        {finalList.length > 1 && "s"}. ({finalList.length})
       </p>
       {finalList}
     </div>
   );
-}
-
-function count(arr: Set<string>, size: number) {
-  if (arr.size === size) return "all";
-  if (arr.size === 0) return "none";
-  if (arr.size === 1) return Array.from(arr.values())[0];
-  return "multiple";
-}
-
-function itemsType(selectedColors: string, selectedShapes: string) {
-  const am = new Set(["all", "multiple"]);
-  if (selectedColors === "all" && selectedShapes === "all") return "All";
-  if (am.has(selectedShapes) && am.has(selectedColors)) return "Multiple";
-  if (!am.has(selectedShapes) && !am.has(selectedColors))
-    return `${selectedShapes} ${selectedColors}`;
-  if (!am.has(selectedShapes)) return `${selectedColors} ${selectedShapes}`;
-  return `${selectedShapes} ${selectedColors}`;
 }

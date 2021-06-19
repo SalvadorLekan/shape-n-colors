@@ -14,7 +14,7 @@ function FilterByShape({
           key={shape}
           style={{
             color: shapes[shape] ? "white" : "blueviolet",
-            backgroundColor: shapes[shape] ? "blueviolet" : "inherit",
+            backgroundColor: shapes[shape] ? "blueviolet" : "white",
           }}
         >
           {shape}
