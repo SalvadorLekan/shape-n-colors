@@ -4,6 +4,8 @@ import useAuth from "../../hooks/useAuth";
 import FilterByColor from "../FilterByColor";
 import FilterByShape from "../FilterByShape";
 import Shape from "../Shape";
+import styles from "./Main.module.scss";
+
 export default function Main() {
   const [shapes, setShapes] = useState<BooleanObject>({});
   const [colors, setColors] = useState<BooleanObject>({});
@@ -63,23 +65,27 @@ export default function Main() {
   );
 
   return (
-    <div>
-      <p>Hi, {loggedInUser.name}</p>
-      <p>Filter</p>
-      <p>By Color:</p>
+    <div className={styles.main}>
+      <p className={styles.greeting}>
+        Hi, <span>{loggedInUser.name}</span>
+      </p>
+      <p className={styles.heading}>Filter</p>
+      <p className={styles.subheading}>By Color:</p>
       <FilterByColor colors={colors} setColors={setColors} />
 
-      <p>By Shape:</p>
+      <p className={styles.subheading}>By Shape:</p>
 
       <FilterByShape shapes={shapes} setShapes={setShapes} />
-      <p>{itemsType(selectedColors, selectedShapes)} items</p>
+      <p className={[styles.subheading, styles.capitalize].join(" ")}>
+        {itemsType(selectedColors, selectedShapes)} item
+        {finalList.length > 2 && "s"}. ({finalList.length})
+      </p>
       {finalList}
     </div>
   );
 }
 
 function count(arr: Set<string>, size: number) {
-  console.log({ arr, size });
   if (arr.size === size) return "all";
   if (arr.size === 0) return "none";
   if (arr.size === 1) return Array.from(arr.values())[0];

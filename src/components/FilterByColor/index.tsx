@@ -1,3 +1,5 @@
+import styles from "./fbc.module.scss";
+
 function FilterByColor({
   colors,
   setColors,
@@ -6,13 +8,14 @@ function FilterByColor({
   setColors: Function;
 }) {
   return (
-    <div>
+    <div className={styles.container}>
       {Object.keys(colors).map((color) => (
         <label
           style={{ backgroundColor: colors[color] ? color : "white" }}
           key={color}
         >
           <input
+            aria-label={color}
             type="checkbox"
             checked={colors[color]}
             onChange={(e) => {
@@ -22,7 +25,6 @@ function FilterByColor({
               }));
             }}
           />
-          {color}
         </label>
       ))}
     </div>

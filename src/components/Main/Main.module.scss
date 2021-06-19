@@ -1,0 +1,30 @@
+.main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2ch;
+}
+.heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.8em;
+}
+
+.subheading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.6em;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.greeting {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1em;
+
+  span {
+    color: blueviolet;
+  }
+}

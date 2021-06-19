@@ -1,0 +1,20 @@
+.rectangle {
+  margin: 1em 0;
+  height: calc(100% - 1em) !important;
+}
+.oval {
+  margin: 0 0.5em;
+  border-radius: 100%;
+}
+
+.circle {
+  border-radius: 100%;
+}
+
+.kite {
+  transform: rotate(45deg);
+}
+
+.triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}

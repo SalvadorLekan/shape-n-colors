@@ -1,8 +1,11 @@
 import { useState } from "react";
+import styles from "./form.module.scss";
+
 export default function Form(props: { onSumbit: Function }) {
   const [value, setValue] = useState("");
   return (
     <form
+      className={styles.form}
       onSubmit={(e) => {
         e.preventDefault();
         props.onSumbit(value);

@@ -1,0 +1,35 @@
+.form {
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  margin: 3rem auto;
+  background-color: white;
+  padding: 2ch;
+
+  & > * {
+    margin-bottom: 1em;
+    padding: 1ch 0;
+  }
+
+  input {
+    min-width: 0;
+  }
+
+  label {
+    font-weight: bold;
+    font-size: large;
+  }
+
+  button {
+    font-weight: 600;
+    background-color: blueviolet;
+    border: none;
+    appearance: none;
+    color: white;
+    font-size: large;
+
+    &:disabled {
+      background-color: gray;
+    }
+  }
+}

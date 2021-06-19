@@ -1,0 +1,19 @@
+.container {
+  margin-bottom: 0.5em;
+
+  label {
+    padding: 0.5ch 2ch;
+    position: relative;
+    border: 4px solid blueviolet;
+    margin-right: 1ch;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+
+    input {
+      position: absolute;
+      z-index: -1;
+    }
+  }
+}

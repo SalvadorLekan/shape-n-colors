@@ -1,11 +1,14 @@
 import useAuth from "../../hooks/useAuth";
+import styles from "./Header.module.scss";
 
 function Header() {
   const { user, logOut } = useAuth();
   return (
-    <header>
-      <p>Grid</p>
-      {user ? <button onClick={logOut}>Log Out</button> : null}
+    <header className={styles.header}>
+      <div>
+        <p>Grid</p>
+        {user ? <button onClick={logOut}>Log Out</button> : null}
+      </div>
     </header>
   );
 }

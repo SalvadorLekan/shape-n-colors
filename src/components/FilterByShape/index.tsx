@@ -1,3 +1,5 @@
+import styles from "./fbs.module.scss";
+
 function FilterByShape({
   shapes,
   setShapes,
@@ -6,9 +8,16 @@ function FilterByShape({
   setShapes: Function;
 }) {
   return (
-    <div>
+    <div className={styles.container}>
       {Object.keys(shapes).map((shape) => (
-        <div>
+        <label
+          key={shape}
+          style={{
+            color: shapes[shape] ? "white" : "blueviolet",
+            backgroundColor: shapes[shape] ? "blueviolet" : "inherit",
+          }}
+        >
+          {shape}
           <input
             type="checkbox"
             checked={shapes[shape]}
@@ -18,9 +27,8 @@ function FilterByShape({
                 [shape]: e.target.checked,
               }));
             }}
-          />{" "}
-          {shape}
-        </div>
+          />
+        </label>
       ))}
     </div>
   );

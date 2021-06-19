@@ -1,0 +1,20 @@
+.container {
+  margin-bottom: 0.6em;
+
+  label {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    border: 4px solid blueviolet;
+    margin-right: 1ch;
+    height: 3.5ch;
+    width: 3.5ch;
+
+    input {
+      position: absolute;
+      z-index: -1;
+    }
+  }
+}
