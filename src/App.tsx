@@ -1,19 +1,14 @@
-import { useState } from "react";
-import "./App.css";
+import useAuth from "./hooks/useAuth";
+import Form from "./components/Form";
+import Main from "./components/Main";
+import Header from "./components/Header";
 
 function App() {
-  const [value, setValue] = useState("");
+  const { user, logIn } = useAuth();
   return (
     <div className="App">
-      <label htmlFor="v">Type a name to login</label>
-      <input
-        type="text"
-        id="v"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        required
-      />
-      <button disabled={!value.trim()}>Log In</button>
+      <Header />
+      {user ? <Main /> : <Form onSumbit={logIn} />}
     </div>
   );
 }
